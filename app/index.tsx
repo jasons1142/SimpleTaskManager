@@ -1,8 +1,26 @@
-import Header from "@/components/Header";
-import { StyleSheet } from "react-native";
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
+import Header from "../components/Header";
+import TaskInput from "../components/TaskInput";
+import { Task } from "../types/Task";
+
 export default function Index() {
+
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = (text: string) => {
+    const newTask = {
+      id: Date.now(),
+      text,
+      completed: false,
+  };
+  setTasks([newTask, ...tasks]);
+};
   return (
-    <Header />
+    <View>
+      <Header />
+      <TaskInput onAdd = {addTask}/>
+    </View>
   );
 }
 

@@ -9,6 +9,7 @@ module.exports = function (api) {
             alias: {
               '@': './', // Matches "@/components/TaskInput" to "./components/TaskInput"
             },
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
           },
         ],
       ],

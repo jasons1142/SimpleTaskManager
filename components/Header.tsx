@@ -9,14 +9,14 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#25292e',
+      backgroundColor: '#2c3e50',
       alignItems: 'center',
       justifyContent: 'center',
+      height: 85,
     },
     text: {
-      color: '#fff',
-      fontSize: 25,
+      color: '#d1d5db',
+      fontSize: 40,
       fontWeight: 'bold'
     },
   });
