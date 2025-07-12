@@ -15,7 +15,7 @@ export default function TaskItem({task, onToggleComplete, onDelete, onEdit}: Tas
     const [editedText, setEditedText] = useState(task.text);
  
     return (
-        <View>
+        <View style = {styles.container}>
             <Button title = "Complete" onPress={() => onToggleComplete(task.id)} />
 
             {isEditing ? (
