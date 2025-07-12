@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Header from "../components/Header";
 import TaskInput from "../components/TaskInput";
+import TaskList from "../components/TaskList";
 import { Task } from "../types/Task";
 
 export default function Index() {
@@ -13,13 +14,46 @@ export default function Index() {
       id: Date.now(),
       text,
       completed: false,
+    };
+    setTasks([newTask, ...tasks]);
   };
-  setTasks([newTask, ...tasks]);
-};
+
+  const toggleTaskComplete = (id: number) => {
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === id
+        ? { ...task, completed: !task.completed}
+        : task
+      )
+    );
+  };
+
+  const deleteTask = (id: number) => {
+    setTasks(prevTasks =>
+      prevTasks.filter(task =>
+        task.id != id)
+    );
+  };
+
+  const editTask = (id: number, newText: string) => {
+    setTasks(prevTasks => 
+      prevTasks.map(task => 
+        task.id === id ? {...task, text: newText}
+        : task
+      )
+    )
+  }
+
   return (
     <View>
       <Header />
       <TaskInput onAdd = {addTask}/>
+      <TaskList 
+        tasks = {tasks}
+        onToggleComplete={toggleTaskComplete}
+        onDelete={deleteTask}
+        onEdit={editTask}
+      />
     </View>
   );
 }
@@ -31,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
+  text: { 
     color: '#fff',
   },
 });
