@@ -34,7 +34,7 @@ export default function TaskItem({task, onToggleComplete, onDelete, onEdit}: Tas
                         />
                     </>
             ) : (
-                <Text style={styles.taskText}>{task.text}</Text>
+                <Text style={task.completed ? styles.completedText : styles.taskText}>{task.text}</Text>
             )}
         </View>
 
@@ -83,4 +83,11 @@ const styles = StyleSheet.create({
         padding: 6,
         fontSize: 16,
     },
+
+    completedText: {
+        textDecorationLine: 'line-through',
+        flexShrink: 1,
+        fontSize: 16,
+        marginLeft: 10
+    }
 })
