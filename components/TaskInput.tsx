@@ -33,7 +33,7 @@ export default function TaskInput({onAdd}: TaskInputProps) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#d1d5db',
+        backgroundColor: '#cbd5e1',
         height: 85,
         borderRadius: 10,
         paddingTop: 10,

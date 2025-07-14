@@ -45,7 +45,7 @@ export default function Index() {
   }
 
   return (
-    <View style = {{ flex: 1, backgroundColor: '#dde3ec' }}>
+    <View style = {{ flex: 1, backgroundColor: '#e2e8f0' }}>
 
       <View style = {styles.headerWrapper}>
         <Header />

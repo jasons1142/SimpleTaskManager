@@ -9,13 +9,13 @@ export default function Header() {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#2c3e50',
+      backgroundColor: '#64748b',
       alignItems: 'center',
       justifyContent: 'center',
       height: 85,
     },
     text: {
-      color: '#d1d5db',
+      color: 'fff',
       fontSize: 40,
       fontWeight: 'bold'
     },
