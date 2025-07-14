@@ -15,33 +15,37 @@ export default function TaskItem({task, onToggleComplete, onDelete, onEdit}: Tas
     const [editedText, setEditedText] = useState(task.text);
  
     return (
-        <View style = {styles.container}>
-            <Button title = "Complete" onPress={() => onToggleComplete(task.id)} />
-
-            {isEditing ? (
-                <>
-                    <TextInput 
-                        value = {editedText} 
-                        onChangeText={setEditedText}
-                        placeholder="Edit your text"
-                    />
-                    <Button 
-                        title = "Save"
-                        onPress = {() => {
-                            onEdit(task.id, editedText);
-                            setIsEditing(false);
-                        }}
-                    />
-                </>
+    <View style={styles.container}>
+        <View style={styles.textBlock}>
+                {isEditing ? (
+                    <>
+                        <TextInput
+                            style={styles.textInput}
+                            value={editedText}
+                            onChangeText={setEditedText}
+                            placeholder="Edit your text"
+                        />
+                        <Button
+                            title="Save"
+                            onPress={() => {
+                                onEdit(task.id, editedText);
+                                setIsEditing(false);
+                            }}
+                        />
+                    </>
             ) : (
-                <>
-                    <Text>{task.text}</Text>
-                    <Button title = "Edit" onPress={() => setIsEditing(true)} />
-                </> 
+                <Text style={styles.taskText}>{task.text}</Text>
             )}
-
-            <Button title = "Delete" onPress={() => onDelete(task.id)} />
         </View>
+
+        <View style={styles.buttonBlock}>
+            {!isEditing && (
+                <Button title="Edit" onPress={() => setIsEditing(true)} />
+            )}
+            <Button title="Complete" onPress={() => onToggleComplete(task.id)} />
+            <Button title="Delete" onPress={() => onDelete(task.id)} />
+        </View>
+    </View>
     )
 }
 
@@ -49,6 +53,34 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
-    }
+        justifyContent: 'space-between',
+        backgroundColor: '#d1d5db',
+        marginBottom: 10,
+        borderRadius: 10
+    },
+
+    textBlock: {
+        flex: 1,
+        marginRight: 10,
+    },
+
+    taskText: {
+        flexShrink: 1,
+        fontSize: 16,
+        marginLeft: 10
+    },
+
+    buttonBlock: {
+        flexDirection: 'column',
+        gap: 4,
+        justifyContent: 'flex-start'
+    },
+
+    textInput: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 6,
+        padding: 6,
+        fontSize: 16,
+    },
 })

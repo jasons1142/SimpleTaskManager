@@ -1,5 +1,5 @@
 import { Task } from "@/types/Task";
-import { FlatList, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import TaskItem from "./TaskItem";
 
 export interface TaskListProps {
@@ -11,8 +11,8 @@ export interface TaskListProps {
 
 export default function TaskList({tasks, onToggleComplete, onDelete, onEdit} : TaskListProps) {
     return (
-        <View>
-            <FlatList
+            <FlatList style = {{flex:1}}
+                contentContainerStyle = {styles.container}
                 data = {tasks}
                 renderItem = {({ item }) => (
                     <TaskItem 
@@ -24,7 +24,13 @@ export default function TaskList({tasks, onToggleComplete, onDelete, onEdit} : T
                 )}
                 keyExtractor={(item) => item.id.toString()}
             />
-                
-        </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
+        paddingTop: 10,
+        paddingBottom: 10
+    }
+})

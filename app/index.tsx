@@ -45,15 +45,25 @@ export default function Index() {
   }
 
   return (
-    <View>
-      <Header />
-      <TaskInput onAdd = {addTask}/>
-      <TaskList 
-        tasks = {tasks}
-        onToggleComplete={toggleTaskComplete}
-        onDelete={deleteTask}
-        onEdit={editTask}
-      />
+    <View style = {{ flex: 1, backgroundColor: '#dde3ec' }}>
+
+      <View style = {styles.headerWrapper}>
+        <Header />
+      </View>
+
+      <View style = {styles.inputWrapper}>
+        <TaskInput onAdd = {addTask}/>
+      </View>
+
+      <View style = {styles.listWrapper}>
+        <TaskList 
+          tasks = {tasks}
+          onToggleComplete={toggleTaskComplete}
+          onDelete={deleteTask}
+          onEdit={editTask}
+        />
+      </View>
+
     </View>
   );
 }
@@ -68,4 +78,19 @@ const styles = StyleSheet.create({
   text: { 
     color: '#fff',
   },
+
+  inputWrapper: {
+    marginBottom: 10,
+    paddingHorizontal: 16
+  },
+
+  listWrapper: {
+    flex: 1,
+    paddingHorizontal: 16
+  },
+
+  headerWrapper: {
+    marginBottom: 10
+  }
 });
+
