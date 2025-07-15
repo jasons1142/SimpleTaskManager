@@ -12,8 +12,9 @@ export default function TaskInput({onAdd}: TaskInputProps) {
 
     // Adding a task to task list after trimming white space, if there is no text do nothing
     const handleAdd = () => {
-        if (text.trim()) {
-            onAdd(text.trim());
+        const cleanedText = String(text).trim();
+        if (cleanedText) {
+            onAdd(cleanedText);
             setText('');
         }
     }

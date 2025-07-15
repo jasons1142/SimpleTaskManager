@@ -1,6 +1,6 @@
-import { Task } from "@/types/Task";
 import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Task } from "../types/Task";
 
 export interface TaskItemProps {
     task: Task;
@@ -40,7 +40,7 @@ export default function TaskItem({task, onToggleComplete, onDelete, onEdit}: Tas
             )}
         </View>
         
-        // Code for row of buttons that edit a task, mark a task complete, or delete a task
+        {/*Code for row of buttons that edit a task, mark a task complete, or delete a task*/}
         <View style={styles.buttonBlock}>
             {!isEditing && (
                 <Button title="Edit" onPress={() => setIsEditing(true)} />
