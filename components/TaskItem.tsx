@@ -10,11 +10,13 @@ export interface TaskItemProps {
 }
 
 export default function TaskItem({task, onToggleComplete, onDelete, onEdit}: TaskItemProps) {
-
+    
+    // hooks to switch text to editing state and set edited text
     const [isEditing, setIsEditing] = useState(false);
     const [editedText, setEditedText] = useState(task.text);
  
     return (
+    // View that contains code for functionality of editing and setting a task
     <View style={styles.container}>
         <View style={styles.textBlock}>
                 {isEditing ? (
@@ -37,7 +39,8 @@ export default function TaskItem({task, onToggleComplete, onDelete, onEdit}: Tas
                 <Text style={task.completed ? styles.completedText : styles.taskText}>{task.text}</Text>
             )}
         </View>
-
+        
+        // Code for row of buttons that edit a task, mark a task complete, or delete a task
         <View style={styles.buttonBlock}>
             {!isEditing && (
                 <Button title="Edit" onPress={() => setIsEditing(true)} />

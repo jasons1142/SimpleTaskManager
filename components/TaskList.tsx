@@ -2,6 +2,7 @@ import { Task } from "@/types/Task";
 import { FlatList, StyleSheet } from "react-native";
 import TaskItem from "./TaskItem";
 
+// interface for the functionality our task list must have
 export interface TaskListProps {
     tasks: Task[];
     onToggleComplete: (id: number) => void;
@@ -11,6 +12,7 @@ export interface TaskListProps {
 
 export default function TaskList({tasks, onToggleComplete, onDelete, onEdit} : TaskListProps) {
     return (
+            // Flatlist that gets populated with tasks
             <FlatList style = {{flex:1}}
                 contentContainerStyle = {styles.container}
                 data = {tasks}

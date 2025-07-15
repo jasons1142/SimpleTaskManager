@@ -7,8 +7,10 @@ import { Task } from "../types/Task";
 
 export default function Index() {
 
+  //hook for changing the state of tasks in our task list
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  // adding a task to our task list
   const addTask = (text: string) => {
     const newTask = {
       id: Date.now(),
@@ -18,6 +20,7 @@ export default function Index() {
     setTasks([newTask, ...tasks]);
   };
 
+  // toggling a task as complete in our task list
   const toggleTaskComplete = (id: number) => {
     setTasks(prevTasks =>
       prevTasks.map(task =>
@@ -28,6 +31,7 @@ export default function Index() {
     );
   };
 
+  // removing a task from our task list
   const deleteTask = (id: number) => {
     setTasks(prevTasks =>
       prevTasks.filter(task =>
@@ -35,6 +39,7 @@ export default function Index() {
     );
   };
 
+  // editing a task in our task list
   const editTask = (id: number, newText: string) => {
     setTasks(prevTasks => 
       prevTasks.map(task => 
@@ -44,6 +49,7 @@ export default function Index() {
     )
   }
 
+  // main layout for our React Native Task Manager
   return (
     <View style = {{ flex: 1, backgroundColor: '#e2e8f0' }}>
 
@@ -68,6 +74,7 @@ export default function Index() {
   );
 }
 
+// Styling for components of Task Manager
 const styles = StyleSheet.create({
   container: {
     flex: 1,
