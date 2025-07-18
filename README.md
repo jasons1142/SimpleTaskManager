@@ -23,11 +23,11 @@ https://expo.dev/accounts/jasons1142/projects/SimpleTaskManager/updates/74b1fcfd
 If you'd like to run this locally:
 https://expo.dev/accounts/jasons1142/projects/SimpleTaskManager/updates/74b1fcfd-0835-4faa-9e2b-fc98cf443613
 
-git clone https://github.com/your-username/simpletaskmanager.git
+git clone https://github.com/jasons1142/simpletaskmanager.git
 cd simpletaskmanager
 npm install
 npx expo start
 
 # Author
 
-The author of this repository is Jason Senecharles, a senior at Boston University studying Computer Science.
+The author of this repository is Jason Senecharles, a senior at Boston University studying Computer Science, aspiring to be a software engineer, and looking for New Grad Roles
